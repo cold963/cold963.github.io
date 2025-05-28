@@ -23,7 +23,7 @@
     <h1>LISTA DE CHEQUEO VEHICULAR</h1>
     <p class="disclaimer">(SG-SST) La Alcaldía de Yopal en cumplimiento de la ley 1581 de 2012 y su decreto reglamentario garantiza la seguridad y confidencialidad respecto del tratamiento de datos sensibles o personales aquí consignados. Política de Tratamiento de Datos Personales, disponible en https://www.yopal-casanare.gov.co/tema/politicas-y-lineamientos/politica-de-tratamiento-de-datos-personales.</p>
     
-    <form id="formChequeo" action="https://formsubmit.co/vlombana18@gmail.com" method="POST">
+    <form action="https://formsubmit.co/vlombana18@gmail.com" method="POST">
       <!-- Campos ocultos importantes -->
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
@@ -62,7 +62,7 @@
     <label><input type="radio" name="tipo_vehiculo" value="Bus"> Bus</label><br>
     <label>Otro: <input type="text" name="otro_vehiculo"></label><br><br>
     <label>FECHA DE REALIZACIÓN DE INSPECCIÓN</label>
-        <input type="date" name="FECHA DE REALIZACIÓN DE INSPECCIÓN" required>
+        <input type="date" name="FECHA_DE_REALIZACIÓN_DE_INSPECCIÓN" required>
       </section>
 
       <section>
@@ -105,7 +105,7 @@
 
     
      <label>FECHA DE NACIMIENTO</label>
-        <input type="date" name="FECHA DE NACIMIENTO" required>
+        <input type="date" name="FECHA_DE_NACIMIENTO" required>
 
         <label>EPS</label>
         <input type="text" name="eps" required>
@@ -117,7 +117,7 @@
      <label>Otro: <input type="text" name="LICENCIA"></label><br><br>
 
      <label>FECHA DE VENCIMIENTO DE LA LICENCIA DE CONDUCCIÓN</label>
-        <input type="date" name="FECHA DE VENCIMIENTO DE LA LICENCIA DE CONDUCCIÓN" required>
+        <input type="date" name="FECHA_DE_VENCIMIENTO_DE_LA_LICENCIA_DE_CONDUCCIÓN" required>
 
 
         
@@ -125,26 +125,26 @@
     
     <label><input type="radio" name="tipo_vehiculo4" value="Camioneta"> SI</label><br>
     <label><input type="radio" name="tipo_vehiculo4" value="Volqueta sencilla"> NO</label><br>
-     <label>Otro: <input type="text" name="CUENTA CON PÓLIZA DE SEGURO"></label><br><br>
+     <label>Otro: <input type="text" name="CUENTA_CON_PÓLIZA_DE_SEGURO"></label><br><br>
 
      <label>FECHA DE VENCIMIENTO DE LA PÓLIZA DE SEGURO</label>
-        <input type="date" name="FECHA DE VENCIMIENTO DE LA PÓLIZA DE SEGURO" required>
+        <input type="date" name="FECHA_DE_VENCIMIENTO_DE_LA_PÓLIZA_DE_SEGURO" required>
 
         <h2>DOCUMENTOS DEL VEHÍCULO</h2>
    
 
 
         <label>FECHA DE VENCIMIENTO TECNICOMECÁNICA</label>
-        <input type="date" name="FECHA DE VENCIMIENTO TECNICOMECÁNICA" required>
+        <input type="date" name="FECHA_DE_VENCIMIENTO_TECNICOMECÁNICA" required>
 
          <label>FECHA DE VENCIMIENTO DEL SOAT</label>
-        <input type="date" name="FECHA DE VENCIMIENTO DEL SOAT" required>
+        <input type="date" name="FECHA_DE_VENCIMIENTO_DEL_SOAT" required>
 
          <label>KILOMETRAJE ACTUAL</label>
         <input type="text" name="KILOMETRAJE" required>
 
         <label>FECHA DE ÚLTIMO CAMBIO DE ACEITE</label>
-        <input type="date" name="FECHA DE ÚLTIMO CAMBIO DE ACEITE" required>
+        <input type="date" name="FECHA_DE_ÚLTIMO_CAMBIO_DE_ACEITE" required>
         </section>
         
       
@@ -544,31 +544,7 @@
     </form>
   </main>
 
-  <script>
-    // Validación adicional del formulario
-  document.getElementById('formChequeo').addEventListener('submit', function(e) {
-  const rows = document.querySelectorAll('table tbody tr');
-  let isValid = true;
-
-  rows.forEach(row => {
-    const radios = row.querySelectorAll('input[type="radio"]');
-    const algunoSeleccionado = Array.from(radios).some(radio => radio.checked);
-
-    if (!algunoSeleccionado) {
-      isValid = false;
-      row.style.backgroundColor = '#ffe0e0'; // marca la fila con error
-    } else {
-      row.style.backgroundColor = '';
-    }
-  });
-
-  if (!isValid) {
-    e.preventDefault();
-    alert('Por favor marque al menos una opción en cada fila de evaluación');
-  }
-});
-
-  </script>
+  
 
   <script>
  
