@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
     return;
   }
 
+  
+
   // 3. Configurar checkboxes para selección única por fila
   function configurarCheckboxes() {
     document.querySelectorAll("table tbody tr").forEach(row => {
@@ -77,17 +79,17 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Sección 1: Datos Generales
     y = agregarSeccion("Datos Generales", [
-      'email', 'placa', 'modelo', 'tipo_vehiculo', 'fechaR.I'
+      'email', 'placa', 'modelo', 'tipo_vehiculo', 'FECHA DE REALIZACIÓN DE INSPECCIÓN'
     ]);
     
     // Sección 2: Datos del Conductor
     y = agregarSeccion("Datos del Conductor", [
-      'nombre', 'cedula', 'eps', 'fecha.N', 'fecha.v'
+      'nombre', 'cedula', 'eps', 'FECHA DE NACIMIENTO', 'FECHA DE VENCIMIENTO DE LA LICENCIA DE CONDUCCIÓN'
     ]);
     
     // Sección 3: Documentos del Vehículo
     y = agregarSeccion("Documentos del Vehículo", [
-      'fecha.T', 'fecha.S', 'fecha.P', 'KILOMETRAJE', 'fecha.C'
+      'FECHA DE VENCIMIENTO TECNICOMECÁNICA', 'FECHA DE VENCIMIENTO DEL SOAT', 'FECHA DE VENCIMIENTO DE LA PÓLIZA DE SEGURO', 'KILOMETRAJE', 'FECHA DE ÚLTIMO CAMBIO DE ACEITE'
     ]);
     
     // Sección 4: Lista de Chequeo (resumen)
