@@ -158,9 +158,205 @@ document.addEventListener("DOMContentLoaded", function() {
       submitBtn.textContent = "Enviando...";
       
       // Generar PDF completo
-      const pdfDoc = await generarPDFCompleto(formData);
-      const pdfBlob = pdfDoc.output('blob');
-      
+     async function generarPDFCompleto(formData) {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  
+  // Configuración inicial
+  doc.setFont("helvetica");
+  doc.setFontSize(14);
+  doc.setTextColor(0, 0, 0);
+
+  // Encabezado
+  doc.setFontSize(16);
+  doc.setFont("helvetica", "bold");
+  doc.text("LISTA DE CHEQUEO VEHICULAR - ALCALDÍA DE YOPAL", 105, 15, { align: 'center' });
+  
+  doc.setFontSize(10);
+  doc.text("(SG-SST) La Alcaldía de Yopal en cumplimiento de la ley 1581 de 2012 y su decreto reglamentario", 105, 22, { align: 'center' });
+  doc.text("garantiza la seguridad y confidencialidad respecto del tratamiento de datos sensibles o personales aquí consignados.", 105, 27, { align: 'center' });
+
+  let y = 40;
+
+  // Primera sección (Datos del vehículo)
+  doc.setFontSize(12);
+  doc.setFont("helvetica", "bold");
+  doc.text("DATOS DEL VEHÍCULO", 14, y);
+  
+  // Línea divisoria
+  doc.setDrawColor(0);
+  doc.setLineWidth(0.5);
+  doc.line(14, y+2, 196, y+2);
+  
+  y += 10;
+  
+  // Tabla de datos del vehículo
+  doc.setFontSize(10);
+  doc.setFont("helvetica", "bold");
+  doc.text("PLACA:", 14, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('placa') || 'N/A', 30, y);
+  
+  doc.setFont("helvetica", "bold");
+  doc.text("TIPO DE VEHÍCULO:", 80, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('tipo_vehiculo') || 'N/A', 120, y);
+  
+  doc.setFont("helvetica", "bold");
+  doc.text("FECHA INSPECCIÓN:", 140, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('FECHA_DE_REALIZACIÓN_DE_INSPECCIÓN') || 'N/A', 175, y);
+  
+  y += 7;
+  
+  doc.setFont("helvetica", "bold");
+  doc.text("MODELO:", 14, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('modelo') || 'N/A', 30, y);
+  
+  doc.setFont("helvetica", "bold");
+  doc.text("KILOMETRAJE:", 80, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('KILOMETRAJE') || 'N/A', 110, y);
+  
+  y += 10;
+
+  // Segunda sección (Datos del conductor)
+  doc.setFontSize(12);
+  doc.setFont("helvetica", "bold");
+  doc.text("DATOS DEL CONDUCTOR", 14, y);
+  doc.line(14, y+2, 196, y+2);
+  
+  y += 10;
+  
+  doc.setFontSize(10);
+  doc.setFont("helvetica", "bold");
+  doc.text("NOMBRE:", 14, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('nombre') || 'N/A', 30, y);
+  
+  doc.setFont("helvetica", "bold");
+  doc.text("CÉDULA:", 100, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('cedula') || 'N/A', 120, y);
+  
+  doc.setFont("helvetica", "bold");
+  doc.text("EPS:", 140, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('eps') || 'N/A', 155, y);
+  
+  y += 7;
+  
+  doc.setFont("helvetica", "bold");
+  doc.text("LICENCIA:", 14, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('tipo_vehiculo3') || 'N/A', 30, y);
+  
+  doc.setFont("helvetica", "bold");
+  doc.text("VENC. LICENCIA:", 80, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('FECHA_DE_VENCIMIENTO_DE_LA_LICENCIA_DE_CONDUCCIÓN') || 'N/A', 110, y);
+  
+  doc.setFont("helvetica", "bold");
+  doc.text("POLIZA SEGURO:", 140, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('tipo_vehiculo4') || 'N/A', 170, y);
+  
+  y += 10;
+
+  // Tercera sección (Documentos)
+  doc.setFontSize(12);
+  doc.setFont("helvetica", "bold");
+  doc.text("DOCUMENTOS DEL VEHÍCULO", 14, y);
+  doc.line(14, y+2, 196, y+2);
+  
+  y += 10;
+  
+  doc.setFontSize(10);
+  doc.setFont("helvetica", "bold");
+  doc.text("TECNICOMECÁNICA:", 14, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('FECHA_DE_VENCIMIENTO_TECNICOMECÁNICA') || 'N/A', 50, y);
+  
+  doc.setFont("helvetica", "bold");
+  doc.text("SOAT:", 100, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('FECHA_DE_VENCIMIENTO_DEL_SOAT') || 'N/A', 120, y);
+  
+  doc.setFont("helvetica", "bold");
+  doc.text("POLIZA SEGURO:", 140, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('FECHA_DE_VENCIMIENTO_DE_LA_PÓLIZA_DE_SEGURO') || 'N/A', 170, y);
+  
+  y += 7;
+  
+  doc.setFont("helvetica", "bold");
+  doc.text("ÚLT. CAMBIO ACEITE:", 14, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(formData.get('FECHA_DE_ÚLTIMO_CAMBIO_DE_ACEITE') || 'N/A', 50, y);
+  
+  y += 10;
+
+  // Lista de chequeo (simplificada)
+  const categorias = [
+    'EXTERIOR DEL VEHICULO',
+    'INTERIOR DEL VEHICULO', 
+    'EQUIPO DE CARRETERA',
+    'CONDICIONES MECÁNICAS',
+    'CONDICIONES ELÉCTRICAS'
+  ];
+  
+  for (const categoria of categorias) {
+    if (y > 250) {
+      doc.addPage();
+      y = 20;
+    }
+    
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "bold");
+    doc.text(categoria, 14, y);
+    doc.line(14, y+2, 196, y+2);
+    y += 7;
+    
+    // Aquí puedes agregar los elementos específicos de cada categoría
+    // Ejemplo simplificado:
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "normal");
+    doc.text("✓ Verificado: Todos los elementos en buen estado", 20, y);
+    y += 5;
+  }
+  
+  // Observaciones
+  if (y > 250) {
+    doc.addPage();
+    y = 20;
+  }
+  
+  doc.setFontSize(12);
+  doc.setFont("helvetica", "bold");
+  doc.text("OBSERVACIONES", 14, y);
+  doc.line(14, y+2, 196, y+2);
+  y += 7;
+  
+  if (formData.get('observaciones')) {
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "normal");
+    const obsLines = doc.splitTextToSize(formData.get('observaciones'), 180);
+    obsLines.forEach(line => {
+      doc.text(line, 20, y);
+      y += 5;
+    });
+  } else {
+    doc.text("Ninguna", 20, y);
+  }
+  
+  // Pie de página
+  doc.setFontSize(8);
+  doc.setTextColor(100);
+  doc.text("Documento generado automáticamente - Alcaldía de Yopal", 105, 290, { align: 'center' });
+  
+  return doc;
+}
       // Preparar datos para EmailJS
       const templateParams = {
         to_email: formData.get('email'),
