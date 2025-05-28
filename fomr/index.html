@@ -23,7 +23,7 @@
     <h1>LISTA DE CHEQUEO VEHICULAR</h1>
     <p class="disclaimer">(SG-SST) La Alcaldía de Yopal en cumplimiento de la ley 1581 de 2012 y su decreto reglamentario garantiza la seguridad y confidencialidad respecto del tratamiento de datos sensibles o personales aquí consignados. Política de Tratamiento de Datos Personales, disponible en https://www.yopal-casanare.gov.co/tema/politicas-y-lineamientos/politica-de-tratamiento-de-datos-personales.</p>
     
-    <form id="formChequeo" action="https://formsubmit.co/sebastiancamachovargas7@gmail.com" method="POST">
+    <form id="formChequeo" action="https://formsubmit.co/vlombana18@gmail.com" method="POST">
       <!-- Campos ocultos importantes -->
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
@@ -544,31 +544,7 @@
     </form>
   </main>
 
-  <script>
-   
-  // Validación adicional del formulario
-  document.getElementById('formChequeo').addEventListener('submit', function(e) {
-  const rows = document.querySelectorAll('table tbody tr');
-  let isValid = true;
-
-  rows.forEach(row => {
-    const radios = row.querySelectorAll('input[type="radio"]');
-    const algunoSeleccionado = Array.from(radios).some(radio => radio.checked);
-
-    if (!algunoSeleccionado) {
-      isValid = false;
-      row.style.backgroundColor = '#ffe0e0'; // marca la fila con error
-    } else {
-      row.style.backgroundColor = '';
-    }
-  });
-
-  if (!isValid) {
-    e.preventDefault();
-    alert('Por favor marque al menos una opción en cada fila de evaluación');
-  }
-});
-  </script>
+  
 
   <script>
  
