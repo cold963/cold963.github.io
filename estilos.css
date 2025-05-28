@@ -1,0 +1,310 @@
+/* Reset básico */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fdf6e3;
+}
+
+.header {
+  text-align: center; /* Centra la imagen horizontalmente */
+  margin: 20px 0; /* Añade espacio arriba y abajo */
+}
+
+header img.banner {
+  max-width: 100%; /* Asegura que no se desborde en móviles */
+  height: auto; /* Mantiene la proporción */
+  display: block; /* Elimina espacio fantasma debajo de la imagen */
+  margin: 0 auto; /* Centrado adicional (redundante con text-align) */
+}
+
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: 20px auto;
+  background: white;
+  border-left: 8px solid #388e3c;
+  border-right: 8px solid #fbc02d;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-radius: 8px; /* bordes redondeados para suavizar */
+}
+
+/* Separar visualmente cada sección con margen y separación */
+main > section {
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+/* Títulos de secciones con línea inferior para orden */
+h2 {
+  color: #d32f2f;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #d32f2f;
+  padding-bottom: 5px;
+}
+
+form label {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+button {
+  background-color: #388e3c;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-top: 20px;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #2e7d32;
+}
+
+/* Tabla de evaluación */
+.tabla-evaluacion {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: #fafafa;
+  padding: 15px 10px;
+  border: 1px solid #ddd;
+}
+
+/* Tabla con bordes suavizados y estructura clara */
+.tabla-evaluacion table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px; /* espacio vertical entre filas para mejor lectura */
+  min-width: 600px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.tabla-evaluacion th,
+.tabla-evaluacion td {
+  padding: 12px 15px;
+  text-align: center;
+  white-space: nowrap;
+  background-color: white;
+  border: 1px solid #ccc;
+  vertical-align: middle;
+  box-shadow: inset 0 -1px 0 #ddd;
+  transition: background-color 0.3s;
+}
+
+.tabla-evaluacion th {
+  background-color: #d32f2f; /* color rojo más fuerte para destacar */
+  color: white;              /* texto blanco para contraste */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 14px 12px;
+  border: none;
+  box-shadow: none;
+  border-radius: 6px 6px 0 0; /* bordes redondeados en la parte superior */
+  text-align: center;
+}
+
+.tabla-evaluacion th:first-child {
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* Separar visualmente las celdas de datos para esas columnas */
+.tabla-evaluacion td {
+  background-color: #fff;
+  padding: 12px 12px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tabla-evaluacion td:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  padding-left: 20px;
+}
+
+/* Colores sutiles para columnas de evaluación (Bueno, Regular, etc) */
+.tabla-evaluacion td:nth-child(n+2) {
+  font-weight: 500;
+  color: #555;
+}
+
+/* Mejorar la separación entre columnas */
+.tabla-evaluacion table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+/* Hover suave */
+.tabla-evaluacion tbody tr:hover td {
+  background-color: #f1f8e9;
+}
+
+
+
+
+/* Aseguramos que la tabla use todo el ancho disponible */
+section table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+/* Bordes y centrado */
+section th, section td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Texto de "Elemento" alineado a la izquierda para mejor lectura */
+section td:first-child {
+  text-align: left;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Bordes verticales separadores entre columnas Bueno, Regular, Malo, No Tiene */
+section th:not(:first-child),
+section td:not(:first-child) {
+  border-left: 2px solid #eee;
+}
+
+/* Para que las celdas que contienen checkboxes tengan espacio y los checkbox estén centrados */
+section td input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Espacio extra entre cada columna para no verse pegadas */
+section th, section td {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Hover en fila para mejor experiencia visual */
+section tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+  /* Contenedor tabla con scroll horizontal */
+  section table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* mejor scroll en iOS */
+    border-collapse: separate;
+    border-spacing: 0 8px; /* espacio vertical entre filas */
+    font-size: 14px;
+  }
+
+  /* Encabezados y filas en bloque para que se adapten */
+  section thead, section tbody, section tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* columnas de ancho fijo para mejor control */
+  }
+
+  /* Celdas con texto alineado y wrap */
+  section th, section td {
+    padding: 8px 6px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap; /* evitar saltos raros */
+    overflow: hidden;
+    text-overflow: ellipsis; /* texto truncado si es muy largo */
+  }
+
+  /* Primera columna: más espacio, texto alineado a la izquierda y con wrap */
+  section td:first-child, section th:first-child {
+    text-align: left;
+    max-width: 160px;
+    white-space: normal; /* permitir salto de línea */
+    font-weight: 600;
+  }
+
+  /* Inputs radio más grandes, centrados y con más espacio */
+  section td input[type="radio"] {
+    transform: scale(1.4);
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+  }
+
+  /* Añadir espacio entre columnas para radios */
+  section td:not(:first-child) {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Ajuste general del contenedor del formulario */
+  main {
+    padding: 15px 10px;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  /* Ajustar textarea para que se adapte */
+  textarea[name="observaciones"] {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+    resize: vertical;
+    box-sizing: border-box;
+  }
+
+  /* Botón de envío más grande y responsive */
+  .form-actions {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .submit-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 320px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+}
