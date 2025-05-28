@@ -79,17 +79,17 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Sección 1: Datos Generales
     y = agregarSeccion("Datos Generales", [
-      'email', 'placa', 'modelo', 'tipo_vehiculo', 'FECHA DE REALIZACIÓN DE INSPECCIÓN'
+      'email', 'placa', 'modelo', 'tipo_vehiculo', 'FECHA_DE_REALIZACIÓN_DE_INSPECCIÓN'
     ]);
     
     // Sección 2: Datos del Conductor
     y = agregarSeccion("Datos del Conductor", [
-      'nombre', 'cedula', 'eps', 'FECHA DE NACIMIENTO', 'FECHA DE VENCIMIENTO DE LA LICENCIA DE CONDUCCIÓN'
+      'nombre', 'cedula', 'eps', 'FECHA_DE_NACIMIENTO', 'FECHA_DE_VENCIMIENTO_DE_LA_LICENCIA_DE_CONDUCCIÓN'
     ]);
     
     // Sección 3: Documentos del Vehículo
     y = agregarSeccion("Documentos del Vehículo", [
-      'FECHA DE VENCIMIENTO TECNICOMECÁNICA', 'FECHA DE VENCIMIENTO DEL SOAT', 'FECHA DE VENCIMIENTO DE LA PÓLIZA DE SEGURO', 'KILOMETRAJE', 'FECHA DE ÚLTIMO CAMBIO DE ACEITE'
+      'FECHA_DE_VENCIMIENTO TECNICOMECÁNICA', 'FECHA_DE_VENCIMIENTO_DEL_SOAT', 'FECHA_DE_VENCIMIENTO_DE_LA_PÓLIZA_DE_SEGURO', 'KILOMETRAJE', 'FECHA_DE_ÚLTIMO_CAMBIO_DE_ACEITE'
     ]);
     
     // Sección 4: Lista de Chequeo (resumen)
@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
         to_name: formData.get('nombre'),
         placa: formData.get('placa'),
         modelo: formData.get('modelo'),
-        fecha_inspeccion: formData.get('FECHA DE REALIZACIÓN DE INSPECCIÓN'),
+        fecha_inspeccion: formData.get('FECHA_DE_REALIZACIÓN_DE_INSPECCIÓN'),
         observaciones: formData.get('observaciones') || 'Ninguna',
         pdf_attachment: await blobToBase64(pdfBlob),
         pdf_name: `chequeo_vehicular_${formData.get('placa')}.pdf`
@@ -206,4 +206,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Inicializar checkboxes
   configurarCheckboxes();
-});
+})
